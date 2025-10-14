@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { BiBarChartAlt2 } from "react-icons/bi";
 import {
   FiMonitor,
@@ -30,12 +30,11 @@ const services = [
     description:
       "Building modern CMS-based websites with WordPress (Elementor, Bricks) and Statamic — optimized for speed, flexibility, and easy management.",
   },
-
   {
     icon: <FiShoppingCart size={40} />,
     title: "E-Commerce Solutions",
     description:
-      "Delivering seamless online stores with Shopify,WooCommerce, Laravel, or custom solutions that drive sales.",
+      "Delivering seamless online stores with Shopify, WooCommerce, Laravel, or custom solutions that drive sales.",
   },
   {
     icon: <FiSettings size={40} />,
@@ -51,11 +50,36 @@ const services = [
   },
 ];
 
+const container: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+  },
+};
+
 const Services = () => {
   return (
     <section className="container">
-      <div className="py-[100px]">
-        <div className="text-center mb-6 lg:mb-20">
+      <motion.div
+        className="py-[100px]"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+      >
+        <motion.div variants={fadeUp} className="text-center mb-6 lg:mb-20">
           <h1 className="font-bold text-[24px] lg:text-[40px] leading-[29px] lg:leading-[48px] text-white mb-[18px]">
             Services
           </h1>
@@ -64,12 +88,16 @@ const Services = () => {
             experiences. Combining creativity with technology, I create
             solutions that inspire and deliver real results.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
+        <motion.div
+          variants={container}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10"
+        >
           {services.map((service, index) => (
             <motion.div
               key={index}
+              variants={fadeUp}
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0 0 25px rgba(253, 111, 0, 0.2)",
@@ -88,8 +116,8 @@ const Services = () => {
               </p>
             </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };

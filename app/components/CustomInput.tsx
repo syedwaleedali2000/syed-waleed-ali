@@ -1,4 +1,6 @@
+"use client";
 import React from "react";
+import { motion, Variants } from "framer-motion";
 
 interface Option {
   label: string;
@@ -19,6 +21,15 @@ interface CustomInputProps {
   textarea?: boolean;
 }
 
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4, ease: "easeOut" },
+  },
+};
+
 const CustomInput: React.FC<CustomInputProps> = ({
   type = "text",
   name,
@@ -33,26 +44,39 @@ const CustomInput: React.FC<CustomInputProps> = ({
 
   if (textarea) {
     return (
-      <textarea
+      <motion.textarea
         name={name}
         placeholder={placeholder}
         value={value}
         onChange={onChange}
         required={required}
         className={`${baseClasses} h-32`}
-      ></textarea>
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        whileHover={{ scale: 1.02 }}
+        whileFocus={{ scale: 1.03 }}
+      />
     );
   }
 
   return (
-    <input
+    <motion.input
       type={type}
       name={name}
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      required={required}
       inputMode={type === "text" && name === "phone" ? "numeric" : undefined}
       className={baseClasses}
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+      whileHover={{ scale: 1.02 }}
+      whileFocus={{ scale: 1.03 }}
     />
   );
 };

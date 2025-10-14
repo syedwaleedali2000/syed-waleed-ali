@@ -2,7 +2,13 @@
 import Link from "next/link";
 import React from "react";
 import { usePathname } from "next/navigation";
+import { motion, Variants } from "framer-motion";
 import SocialIcons from "./SocialIcons";
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
 
 const Footer = () => {
   const pathname = usePathname();
@@ -15,36 +21,56 @@ const Footer = () => {
   ];
 
   return (
-    <section className="pt-[40px] pb-[24px] bg-[rgba(255,255,255,0.04)]">
+    <motion.section
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+      className="pt-[40px] pb-[24px] bg-[rgba(255,255,255,0.04)]"
+    >
       <div className="container">
         <div className="flex flex-col items-center justify-center gap-[50px]">
-          <Link
-            href="/"
-            className="site-logo text-[35px] leading-[39px] font-bold"
-          >
-            WALEED
-          </Link>
+          <motion.div variants={fadeUp}>
+            <Link
+              href="/"
+              className="site-logo text-[35px] leading-[39px] font-bold"
+            >
+              WALEED
+            </Link>
+          </motion.div>
 
-          <div className="lg:flex max-lg:text-center items-center gap-[30px] xl:gap-[60px]">
-            {menuItems.map((item) => {
+          <motion.div
+            variants={fadeUp}
+            className="lg:flex max-lg:text-center items-center gap-[30px] xl:gap-[60px]"
+          >
+            {menuItems.map((item, index) => {
               const isActive = pathname === item.href;
               return (
-                <Link
+                <motion.div
                   key={item.href}
-                  href={item.href}
-                  className={`hover:text-primary text-[20px] leading-[24px] mx-[12px] mb-[15px] last:mb-0 last:mx-0 inline-block ${
-                    isActive ? "font-bold text-primary" : "font-medium"
-                  }`}
+                  variants={fadeUp}
+                  transition={{ delay: 0.1 * index }}
                 >
-                  {item.label}
-                </Link>
+                  <Link
+                    href={item.href}
+                    className={`hover:text-primary text-[20px] leading-[24px] mx-[12px] mb-[15px] last:mb-0 last:mx-0 inline-block ${
+                      isActive ? "font-bold text-primary" : "font-medium"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </motion.div>
               );
             })}
-          </div>
+          </motion.div>
 
-          <SocialIcons />
+          <motion.div variants={fadeUp}>
+            <SocialIcons />
+          </motion.div>
 
-          <div className="flex flex-col lg:flex-row items-center gap-[20px] lg:gap-[40px]">
+          <motion.div
+            variants={fadeUp}
+            className="flex flex-col lg:flex-row items-center gap-[20px] lg:gap-[40px]"
+          >
             <Link
               href="mailto:syedwaleedali19@gmail.com"
               className="flex items-center gap-2 group transition-all duration-300"
@@ -101,14 +127,17 @@ const Footer = () => {
                 +92 349 2510200
               </span>
             </Link>
-          </div>
+          </motion.div>
 
-          <p className="pt-[16px] text-[16px] font-bold leading-[19px] border-t border-foreground w-full lg:w-[593px] text-center">
+          <motion.p
+            variants={fadeUp}
+            className="pt-[16px] text-[16px] font-bold leading-[19px] border-t border-foreground w-full lg:w-[593px] text-center"
+          >
             Designed by Syed Waleed Ali Front-End Engineer
-          </p>
+          </motion.p>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

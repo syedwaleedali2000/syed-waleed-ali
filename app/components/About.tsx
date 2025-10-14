@@ -2,7 +2,7 @@
 import React from "react";
 import Button from "./Button";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -95,22 +95,49 @@ const skills = [
   },
 ];
 
+const container: Variants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+  },
+};
+
+const fadeUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] },
+  },
+};
+
 const About = () => {
   return (
     <section className="container">
-      <div className="pb-[100px] lg:pb-[150px]">
-        <div className="text-center mb-6 lg:mb-20">
+      <motion.div
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: false, amount: 0.2 }}
+        className="pb-[100px] lg:pb-[150px]"
+      >
+        <motion.div variants={fadeUp} className="text-center mb-6 lg:mb-20">
           <h1 className="font-bold text-[24px] lg:text-[40px] leading-[29px] lg:leading-[48px] text-white mb-[18px]">
             About Me
           </h1>
           <p className="text-[#959595] font-medium text-[16px] lg:text-[20px] leading-[26px] lg:leading-[38px] lg:max-w-[800px] mx-auto">
             I’m a detail-oriented Front-End Engineer who loves turning ideas
             into interactive, visually stunning websites and transforming data
-            into insights with Power BI
+            into insights with Power BI.
           </p>
-        </div>
+        </motion.div>
+
         <div className="grid grid-cols-12 items-center gap-[34px] lg:gap-[100px]">
-          <div className="col-span-12 lg:col-span-6 relative overflow-visible flex lg:justify-around">
+          <motion.div
+            variants={fadeUp}
+            className="col-span-12 lg:col-span-6 relative overflow-visible flex lg:justify-around"
+          >
             <Image
               src="/about-me-bg.png"
               alt="Grey Background"
@@ -118,15 +145,23 @@ const About = () => {
               height={1000}
               className="lg:w-full lg:h-full max-w-[366px] lg:max-w-[523px] max-h-[473px] lg:max-h-[676px] object-cover absolute z-[-1] bottom-0"
             />
-            <Image
-              src="/syed-waleed-ali.png"
-              alt="Syed Waleed Ali"
-              width={1000}
-              height={1000}
-              className="lg:w-full lg:h-full max-w-[380px] lg:max-w-[566px] max-h-[565px] lg:max-h-[808px] object-cover grayscale"
-            />
-          </div>
-          <div className="col-span-12 lg:col-span-6">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              viewport={{ once: false }}
+            >
+              <Image
+                src="/syed-waleed-ali.png"
+                alt="Syed Waleed Ali"
+                width={1000}
+                height={1000}
+                className="lg:w-full lg:h-full max-w-[380px] lg:max-w-[566px] max-h-[565px] lg:max-h-[808px] object-cover grayscale"
+              />
+            </motion.div>
+          </motion.div>
+
+          <motion.div variants={fadeUp} className="col-span-12 lg:col-span-6">
             <p className="font-medium text-[16px] lg:text-[20px] leading-[30px] lg:leading-[38px] mb-[50px]">
               I’m a passionate Front-End Engineer who turns ideas into clean,
               interactive, and high-performing digital experiences. With a
@@ -146,17 +181,24 @@ const About = () => {
               into elegant, scalable, and user-friendly web and data-driven
               solutions.
             </p>
-            <div className="flex justify-center lg:justify-start">
+            <motion.div
+              variants={fadeUp}
+              className="flex justify-center lg:justify-start"
+            >
               <Button
                 label="Download Resume"
                 href="/syed-waleed-ali-resume.pdf"
                 variant="primary"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
 
-        <div className="skills mt-24">
+        <motion.div
+          variants={fadeUp}
+          className="skills mt-24"
+          viewport={{ once: false }}
+        >
           <Swiper
             modules={[Autoplay]}
             slidesPerView={2}
@@ -174,7 +216,17 @@ const About = () => {
           >
             {skills.map((skill, i) => (
               <SwiperSlide key={i}>
-                <div className="flex flex-col items-center text-center">
+                <motion.div
+                  className="flex flex-col items-center text-center"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{
+                    duration: 0.6,
+                    delay: i * 0.1,
+                    ease: "easeOut",
+                  }}
+                  viewport={{ once: false }}
+                >
                   <div className="relative w-24 h-24 mb-3">
                     <svg className="w-full h-full transform -rotate-90">
                       <circle
@@ -197,7 +249,7 @@ const About = () => {
                           strokeDasharray: 283,
                           strokeDashoffset: 283,
                         }}
-                        animate={{
+                        whileInView={{
                           strokeDashoffset: 283 - (283 * skill.level) / 100,
                         }}
                         transition={{
@@ -205,6 +257,7 @@ const About = () => {
                           ease: "easeOut",
                           delay: i * 0.2,
                         }}
+                        viewport={{ once: false }}
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">
@@ -215,12 +268,12 @@ const About = () => {
                     {skill.level}%
                   </p>
                   <p className="font-semibold text-[15px]">{skill.name}</p>
-                </div>
+                </motion.div>
               </SwiperSlide>
             ))}
           </Swiper>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 };
