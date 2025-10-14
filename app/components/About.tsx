@@ -114,7 +114,7 @@ const fadeUp: Variants = {
 
 const About = () => {
   return (
-    <section className="container">
+    <section id="about-section" className="container">
       <motion.div
         variants={container}
         initial="hidden"

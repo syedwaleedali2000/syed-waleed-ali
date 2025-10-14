@@ -80,7 +80,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="container">
+    <section id="contact-section" className="container">
       <motion.div
         className="pb-[100px] lg:pb-[150px]"
         initial="hidden"

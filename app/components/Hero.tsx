@@ -56,7 +56,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="container">
+    <section id="hero-section" className="container">
       <motion.div
         variants={container}
         initial="hidden"

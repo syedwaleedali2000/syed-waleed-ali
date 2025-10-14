@@ -14,10 +14,10 @@ const Navbar = () => {
 
   const menuItems = [
     { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/about-me", label: "About me" },
-    { href: "/projects", label: "Projects" },
-    { href: "/contact-me", label: "Contact me" },
+    { href: "#services-section", label: "Services" },
+    { href: "#about-section", label: "About me" },
+    { href: "#projects-section", label: "Projects" },
+    { href: "#contact-section", label: "Contact me" },
   ];
 
   const navbarVariants: Variants = {

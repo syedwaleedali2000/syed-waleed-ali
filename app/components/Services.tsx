@@ -71,7 +71,7 @@ const fadeUp: Variants = {
 
 const Services = () => {
   return (
-    <section className="container">
+    <section id="services-section" className="container">
       <motion.div
         className="py-[100px]"
         variants={container}
