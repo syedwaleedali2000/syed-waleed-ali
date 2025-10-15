@@ -73,11 +73,11 @@ const Services = () => {
   return (
     <section id="services-section" className="container">
       <motion.div
-        className="py-[100px]"
+        className="py-[50px] lg:py-[100px]"
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
       >
         <motion.div variants={fadeUp} className="text-center mb-6 lg:mb-20">
           <h1 className="font-bold text-[24px] lg:text-[40px] leading-[29px] lg:leading-[48px] text-white mb-[18px]">

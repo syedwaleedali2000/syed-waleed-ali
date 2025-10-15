@@ -14,6 +14,9 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Syed Waleed Ali",
   description: "Front-End Engineer",
+  icons: {
+    icon: "/syed-waleed-ali.png",
+  },
 };
 
 export default function RootLayout({

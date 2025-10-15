@@ -33,7 +33,7 @@ body {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 23px;
+  padding: 0 20px;
 }
 .site-logo {
   background: linear-gradient(90deg, #fa6e00 0%, #e60026 100%);

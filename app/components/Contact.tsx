@@ -82,10 +82,10 @@ const Contact = () => {
   return (
     <section id="contact-section" className="container">
       <motion.div
-        className="pb-[100px] lg:pb-[150px]"
+        className="pb-[50px] lg:pb-[100px]"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         <motion.div
           className="text-center mb-6 lg:mb-20"
@@ -105,6 +105,9 @@ const Contact = () => {
           className="grid gap-4 lg:gap-6 max-w-4xl mx-auto"
           variants={fadeUp}
           custom={1}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <motion.div variants={fadeUp} custom={1.2}>

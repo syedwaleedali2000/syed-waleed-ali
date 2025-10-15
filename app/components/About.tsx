@@ -119,10 +119,14 @@ const About = () => {
         variants={container}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
-        className="pb-[100px] lg:pb-[150px]"
+        viewport={{ once: true, amount: 0.2 }}
+        className="pb-[50px] lg:pb-[100px]"
       >
-        <motion.div variants={fadeUp} className="text-center mb-6 lg:mb-20">
+        <motion.div
+          variants={fadeUp}
+          className="text-center mb-6"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           <h1 className="font-bold text-[24px] lg:text-[40px] leading-[29px] lg:leading-[48px] text-white mb-[18px]">
             About Me
           </h1>
@@ -137,6 +141,7 @@ const About = () => {
           <motion.div
             variants={fadeUp}
             className="col-span-12 lg:col-span-6 relative overflow-visible flex lg:justify-around"
+            viewport={{ once: true, amount: 0.2 }}
           >
             <Image
               src="/about-me-bg.png"
@@ -149,7 +154,7 @@ const About = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              viewport={{ once: false }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Image
                 src="/syed-waleed-ali.png"
@@ -161,7 +166,11 @@ const About = () => {
             </motion.div>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="col-span-12 lg:col-span-6">
+          <motion.div
+            variants={fadeUp}
+            className="col-span-12 lg:col-span-6"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <p className="font-medium text-[16px] lg:text-[20px] leading-[30px] lg:leading-[38px] mb-[50px]">
               I’m a passionate Front-End Engineer who turns ideas into clean,
               interactive, and high-performing digital experiences. With a
@@ -184,6 +193,7 @@ const About = () => {
             <motion.div
               variants={fadeUp}
               className="flex justify-center lg:justify-start"
+              viewport={{ once: true, amount: 0.2 }}
             >
               <Button
                 label="Download Resume"
@@ -197,7 +207,7 @@ const About = () => {
         <motion.div
           variants={fadeUp}
           className="skills mt-24"
-          viewport={{ once: false }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <Swiper
             modules={[Autoplay]}
@@ -225,7 +235,7 @@ const About = () => {
                     delay: i * 0.1,
                     ease: "easeOut",
                   }}
-                  viewport={{ once: false }}
+                  viewport={{ once: true, amount: 0.2 }}
                 >
                   <div className="relative w-24 h-24 mb-3">
                     <svg className="w-full h-full transform -rotate-90">
@@ -257,7 +267,7 @@ const About = () => {
                           ease: "easeOut",
                           delay: i * 0.2,
                         }}
-                        viewport={{ once: false }}
+                        viewport={{ once: true, amount: 0.2 }}
                       />
                     </svg>
                     <div className="absolute inset-0 flex items-center justify-center">

@@ -11,7 +11,6 @@ export default function AnimatedCursor() {
     const cursorInner = cursorInnerRef.current;
     if (!cursor || !cursorInner) return;
 
-    // Move cursor smoothly
     const moveCursor = (e: MouseEvent) => {
       gsap.to(cursor, {
         x: e.clientX,
@@ -27,7 +26,6 @@ export default function AnimatedCursor() {
       });
     };
 
-    // Hover effects
     const onMouseEnter = () => {
       gsap.to(cursor, { scale: 1.5, duration: 0.3, ease: "power2.out" });
       gsap.to(cursorInner, { scale: 0.6, duration: 0.3, ease: "power2.out" });
@@ -39,7 +37,6 @@ export default function AnimatedCursor() {
 
     window.addEventListener("mousemove", moveCursor);
 
-    // Attach hover to interactive elements
     const hoverEls = document.querySelectorAll("a, button, .hoverable");
     hoverEls.forEach((el) => {
       el.addEventListener("mouseenter", onMouseEnter);

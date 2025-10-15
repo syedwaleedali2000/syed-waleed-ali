@@ -60,9 +60,8 @@ const Hero = () => {
       <motion.div
         variants={container}
         initial="hidden"
-        whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
-        className="grid grid-cols-12 items-center gap-4 mt-[60px]"
+        animate="show"
+        className="grid grid-cols-12 items-center gap-4 lg:mt-[60px]"
       >
         <motion.div
           variants={fadeUp}
@@ -70,9 +69,8 @@ const Hero = () => {
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            viewport={{ once: false }}
           >
             <Image
               src="/hero-content-bg.png"

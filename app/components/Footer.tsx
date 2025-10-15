@@ -7,7 +7,15 @@ import SocialIcons from "./SocialIcons";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      delay: i * 0.2,
+      ease: "easeOut",
+    },
+  }),
 };
 
 const Footer = () => {
@@ -24,13 +32,13 @@ const Footer = () => {
   return (
     <motion.section
       initial="hidden"
-      whileInView="show"
-      viewport={{ once: true, amount: 0.2 }}
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }}
       className="pt-[40px] pb-[24px] bg-[rgba(255,255,255,0.04)]"
     >
       <div className="container">
         <div className="flex flex-col items-center justify-center gap-[50px]">
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} custom={0}>
             <Link
               href="/"
               className="site-logo text-[35px] leading-[39px] font-bold"
@@ -41,7 +49,8 @@ const Footer = () => {
 
           <motion.div
             variants={fadeUp}
-            className="lg:flex max-lg:text-center items-center gap-[30px] xl:gap-[60px]"
+            custom={0.5}
+            className="flex flex-wrap justify-center gap-[20px] lg:gap-[60px]"
           >
             {menuItems.map((item, index) => {
               const isActive = pathname === item.href;
@@ -49,7 +58,7 @@ const Footer = () => {
                 <motion.div
                   key={item.href}
                   variants={fadeUp}
-                  transition={{ delay: 0.1 * index }}
+                  custom={index / 5 + 0.6}
                 >
                   <Link
                     href={item.href}
@@ -64,12 +73,13 @@ const Footer = () => {
             })}
           </motion.div>
 
-          <motion.div variants={fadeUp}>
+          <motion.div variants={fadeUp} custom={1}>
             <SocialIcons />
           </motion.div>
 
           <motion.div
             variants={fadeUp}
+            custom={1.2}
             className="flex flex-col lg:flex-row items-center gap-[20px] lg:gap-[40px]"
           >
             <Link
@@ -132,9 +142,10 @@ const Footer = () => {
 
           <motion.p
             variants={fadeUp}
+            custom={1.4}
             className="pt-[16px] text-[16px] font-bold leading-[19px] border-t border-foreground w-full lg:w-[593px] text-center"
           >
-            Designed by Syed Waleed Ali Front-End Engineer
+            Designed by Syed Waleed Ali — Front-End Engineer
           </motion.p>
         </div>
       </div>
