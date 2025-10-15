@@ -110,7 +110,7 @@ const Hero = () => {
             variants={fadeUp}
             className="flex items-center gap-6 mt-[40px] lg:mt-[61px]"
           >
-            <Button label="Hire me" href="#contact" variant="primary" />
+            <Button label="Hire me" href="#contact-section" variant="primary" />
             <Button
               label="Download Resume"
               href="/syed-waleed-ali-resume.pdf"

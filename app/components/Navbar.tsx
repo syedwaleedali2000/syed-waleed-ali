@@ -88,7 +88,7 @@ const Navbar = () => {
           <motion.div whileHover={{ scale: 1.05 }}>
             <Button
               label="Hire me"
-              href="#contact"
+              href="#contact-section"
               variant="primary"
               className="nav-btn"
             />
@@ -120,7 +120,7 @@ const Navbar = () => {
           <motion.div whileHover={{ scale: 1.05 }}>
             <Button
               label="Hire me"
-              href="#contact"
+              href="#contact-section"
               variant="primary"
               className="nav-btn"
             />
