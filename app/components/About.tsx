@@ -148,7 +148,7 @@ const About = () => {
               alt="Grey Background"
               width={1000}
               height={1000}
-              className="lg:w-full lg:h-full max-w-[366px] lg:max-w-[523px] max-h-[473px] lg:max-h-[676px] object-cover absolute z-[-1] bottom-0"
+              className="lg:w-full lg:h-full max-w-[360px] lg:max-w-[523px] max-h-[473px] lg:max-h-[676px] object-cover absolute z-[-1] bottom-0"
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -161,7 +161,7 @@ const About = () => {
                 alt="Syed Waleed Ali"
                 width={1000}
                 height={1000}
-                className="lg:w-full lg:h-full max-w-[370px] lg:max-w-[566px] max-h-[565px] lg:max-h-[808px] object-cover grayscale"
+                className="lg:w-full lg:h-full max-w-[365px] lg:max-w-[566px] max-h-[565px] lg:max-h-[808px] object-cover grayscale"
               />
             </motion.div>
           </motion.div>
