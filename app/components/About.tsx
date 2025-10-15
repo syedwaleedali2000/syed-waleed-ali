@@ -137,10 +137,10 @@ const About = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-12 items-center gap-[34px] lg:gap-[100px]">
+        <div className="grid grid-cols-12 items-center gap-y-[34px] lg:gap-x-[100px]">
           <motion.div
             variants={fadeUp}
-            className="col-span-12 lg:col-span-6 relative overflow-visible flex lg:justify-around"
+            className="col-span-12 lg:col-span-6 relative overflow-visible flex justify-center"
             viewport={{ once: true, amount: 0.2 }}
           >
             <Image
@@ -161,7 +161,7 @@ const About = () => {
                 alt="Syed Waleed Ali"
                 width={1000}
                 height={1000}
-                className="lg:w-full lg:h-full max-w-[380px] lg:max-w-[566px] max-h-[565px] lg:max-h-[808px] object-cover grayscale"
+                className="lg:w-full lg:h-full max-w-[370px] lg:max-w-[566px] max-h-[565px] lg:max-h-[808px] object-cover grayscale"
               />
             </motion.div>
           </motion.div>
