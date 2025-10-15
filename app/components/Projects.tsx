@@ -10,9 +10,8 @@ import { projects } from "../data/projects";
 import { Project } from "../types";
 import Button from "./Button";
 
-const tabs = ["All", "Personal", "Work", "Power BI", "Freelance"];
+const tabs = ["All", "My Projects", "OL Projects", "Freelance", "Power BI"];
 
-// Animation Variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
@@ -126,11 +125,14 @@ const Projects = () => {
               >
                 <div className="relative">
                   <Image
-                    src={project.image}
+                    src={`https://api.microlink.io/?url=${encodeURIComponent(
+                      project.link
+                    )}&screenshot=true&embed=screenshot.url`}
                     alt={project.title}
                     width={600}
                     height={400}
-                    className="object-cover w-full h-[415px] group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover w-full h-[415px] group-hover:scale-105 transition-transform duration-500 rounded-[20px]"
+                    unoptimized
                   />
                 </div>
                 <div className="font-bold text-[16px] leading-[26px] capitalize p-[16px] flex justify-between items-center">
@@ -155,6 +157,7 @@ const Projects = () => {
             spaceBetween={20}
             slidesPerView={1.2}
             loop={true}
+            className="project-swiper h-[400px]"
           >
             {filteredProjects.map((project: Project, index) => (
               <SwiperSlide key={`${activeTab}-${project.id}-${index}`}>
@@ -173,11 +176,14 @@ const Projects = () => {
                 >
                   <div className="relative">
                     <Image
-                      src={project.image}
+                      src={`https://api.microlink.io/?url=${encodeURIComponent(
+                        project.link
+                      )}&screenshot=true&embed=screenshot.url`}
                       alt={project.title}
                       width={600}
                       height={400}
-                      className="object-cover w-full h-[284px] lg:h-[400px] group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover w-full h-[284px] lg:h-[400px] group-hover:scale-105 transition-transform duration-500 rounded-[16px]"
+                      unoptimized
                     />
                   </div>
                   <div className="font-bold text-[14px] lg:text-[16px] leading-[22px] lg:leading-[26px] capitalize p-[16px] flex justify-between items-center">

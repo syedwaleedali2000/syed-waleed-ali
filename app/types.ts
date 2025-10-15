@@ -2,7 +2,7 @@
 export interface Project {
   id: number;
   title: string;
-  category: "All" | "Personal" | "Work" | "Power BI" | "Freelance";
+  category: "All" | "My Projects" | "OL Projects" | "Freelance" | "Power BI";
   image: string;
   link: string;
 }

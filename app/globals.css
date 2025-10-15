@@ -67,3 +67,7 @@ a {
   background-clip: text;
   text-fill-color: transparent;
 }
+
+.project-swiper .swiper-pagination-bullet {
+  background-color: var(--primary);
+}
