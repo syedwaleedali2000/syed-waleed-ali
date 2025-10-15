@@ -162,17 +162,11 @@ const Contact = () => {
             </motion.div>
           </div>
 
-          <motion.div
-            className="flex justify-center lg:justify-end"
-            variants={fadeUp}
-            custom={2}
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          >
+          <div className="flex justify-center lg:justify-end">
             <Button type="submit" variant="outline" disabled={loading}>
               {loading ? "Sending..." : "Send"}
             </Button>
-          </motion.div>
+          </div>
         </motion.form>
       </motion.div>
     </section>

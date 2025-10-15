@@ -81,13 +81,13 @@ const Projects = () => {
 
         <motion.div
           variants={fadeUp}
-          className="flex flex-wrap justify-center gap-[24px] mb-10"
+          className="flex flex-wrap justify-center gap-[14px] lg:gap-[24px] mb-10"
         >
           {tabs.map((tab) => (
             <motion.button
               key={tab}
               onClick={() => handleTabChange(tab)}
-              className={`px-[40px] py-[14px] rounded-[8px] font-bold text-[16px] leading-[26px] capitalize transition-all cursor-none ${
+              className={`px-[20px] lg:px-[40px] py-[10px] lg:py-[14px] rounded-[8px] font-bold text-[14px] lg:text-[16px] leading-[22px] lg:leading-[26px] capitalize transition-all cursor-none ${
                 activeTab === tab
                   ? "bg-primary text-white"
                   : "bg-[rgba(255,255,255,0.08)] hover:text-white"
@@ -106,7 +106,7 @@ const Projects = () => {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           layout
-          className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[18px]"
+          className="hidden lg:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[20px]"
         >
           <AnimatePresence mode="wait">
             {visibleProjects.map((project: Project, index) => (
@@ -122,7 +122,7 @@ const Projects = () => {
                   boxShadow: "0 0 25px rgba(253, 111, 0, 0.2)",
                 }}
                 onClick={() => window.open(project.link, "_blank")}
-                className="group relative bg-[rgba(255,255,255,0.08)] rounded-[20px] overflow-hidden border border-transparent hover:border-primary transition-all duration-300 cursor-pointer"
+                className="group relative bg-[rgba(255,255,255,0.08)] rounded-[20px] overflow-hidden border border-transparent hover:border-primary transition-all duration-300"
               >
                 <div className="relative">
                   <Image
@@ -153,14 +153,14 @@ const Projects = () => {
             modules={[Pagination]}
             pagination={{ clickable: true }}
             spaceBetween={20}
-            slidesPerView={1.1}
+            slidesPerView={1.2}
             loop={true}
           >
             {filteredProjects.map((project: Project, index) => (
               <SwiperSlide key={`${activeTab}-${project.id}-${index}`}>
                 <motion.div
                   variants={cardVariants}
-                  initial="hidden"
+                  initial="block"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.2 }}
                   transition={{ duration: 0.4 }}
@@ -169,7 +169,7 @@ const Projects = () => {
                     boxShadow: "0 0 25px rgba(253, 111, 0, 0.2)",
                   }}
                   onClick={() => window.open(project.link, "_blank")}
-                  className="group relative bg-[rgba(255,255,255,0.08)] rounded-[20px] overflow-hidden border border-transparent hover:border-primary transition-all duration-300 cursor-pointer"
+                  className="group relative bg-[rgba(255,255,255,0.08)] rounded-[16px] lg:rounded-[20px] overflow-hidden border border-transparent hover:border-primary transition-all duration-300 cursor-pointer"
                 >
                   <div className="relative">
                     <Image
@@ -177,10 +177,10 @@ const Projects = () => {
                       alt={project.title}
                       width={600}
                       height={400}
-                      className="object-cover w-full h-[400px] group-hover:scale-105 transition-transform duration-500"
+                      className="object-cover w-full h-[284px] lg:h-[400px] group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
-                  <div className="font-bold text-[16px] leading-[26px] capitalize p-[16px] flex justify-between items-center">
+                  <div className="font-bold text-[14px] lg:text-[16px] leading-[22px] lg:leading-[26px] capitalize p-[16px] flex justify-between items-center">
                     <h3 className="text-[#C6C6C6]">{project.title}</h3>
                     <p>{project.category}</p>
                   </div>

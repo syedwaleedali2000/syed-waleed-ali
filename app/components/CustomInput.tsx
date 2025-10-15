@@ -40,7 +40,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   textarea = false,
 }) => {
   const baseClasses =
-    "py-[14px] px-[24px] rounded-[8px] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.04)] w-full focus:outline-none focus:border-primary hover:border-primary transition text-[16px] font-bold leading-[26px] capitalize placeholder-foreground text-primary";
+    "py-[14px] px-[24px] rounded-[8px] bg-[rgba(255,255,255,0.04)] border border-[rgba(255,255,255,0.04)] w-full focus:outline-none focus:border-primary hover:border-primary transition text-[16px] font-bold leading-[26px] placeholder-foreground text-primary";
 
   if (textarea) {
     return (
