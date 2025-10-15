@@ -56,11 +56,11 @@ export default function AnimatedCursor() {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-4 h-4 border-2 bg-[#ffffff42] border-[#ffffff42] rounded-full pointer-events-none z-50 transform -translate-x-0 -translate-y-0 transition-transform"
+        className="hidden lg:block fixed top-0 left-0 w-4 h-4 border-2 bg-[#ffffff42] border-[#ffffff42] rounded-full pointer-events-none z-50 transform transition-transform"
       />
       <div
         ref={cursorInnerRef}
-        className="fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-50 transform -translate-x-0 -translate-y-0"
+        className="hidden lg:block fixed top-0 left-0 w-4 h-4 bg-white rounded-full pointer-events-none z-50 transform"
       />
     </>
   );
